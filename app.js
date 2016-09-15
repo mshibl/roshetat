@@ -17,5 +17,13 @@ const bodyParser 	= require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// Passport is authentication middleware for Node.js
+var passport = require('passport');
+
+// routes ======================================================================
+require('./server/routes.js')(app, passport);
+
 const webpack 		= require('webpack');
 const path 			= require('path');
+
+module.exports = app;
